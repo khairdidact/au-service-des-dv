@@ -319,8 +319,60 @@ input[type="range"] {
   padding-left: 1.2rem;
 }
 
+/* --- Section Outils --- */
+.resources {
+  padding-block: 2rem;
+}
+
+.section-intro {
+  max-width: 75ch;
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.resource-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0 1rem;
+}
+
+[data-theme="hc"] .resource-card {
+  border-width: 2px;
+}
+
+.resource-card summary {
+  min-height: 48px;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 800;
+  list-style-position: inside;
+}
+
+.resource-card summary::-webkit-details-marker {
+  color: var(--accent);
+}
+
+.resource-card ul {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+
+.resource-card li {
+  margin-bottom: 0.4rem;
+}
+
+/* --- Section Quiz --- */
 .quiz-section {
-  padding-block: 1.5rem 2rem;
+  padding-block: 2rem 3rem;
 }
 
 .section-head {
@@ -568,51 +620,6 @@ legend {
 .recommendations {
   margin: 1rem 0 1.4rem;
   padding-left: 1.3rem;
-}
-
-.resources {
-  padding-block: 2rem 3rem;
-}
-
-.section-intro {
-  max-width: 75ch;
-  margin-top: 0;
-  color: var(--muted);
-}
-
-.resource-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-.resource-card {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-  padding: 0 1rem;
-}
-
-[data-theme="hc"] .resource-card {
-  border-width: 2px;
-}
-
-.resource-card summary {
-  min-height: 48px;
-  padding: 0.8rem 0;
-  cursor: pointer;
-  color: var(--text);
-  font-weight: 800;
-}
-
-.resource-card ul {
-  margin: 0 0 1rem;
-  padding-left: 1.2rem;
-}
-
-.resource-card li {
-  margin-bottom: 0.4rem;
 }
 
 .site-footer {

@@ -494,4 +494,64 @@
       savePrefs();
     });
 
-    els.quizForm
+    els.quizForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      validateAnswer();
+    });
+
+    els.nextBtn.addEventListener("click", nextQuestion);
+    els.restartBtn.addEventListener("click", restartQuiz);
+
+    els.listenBtn.addEventListener("click", () => {
+      const question = QUESTIONS[state.index];
+
+      if (!question) {
+        return;
+      }
+
+      if (!speechSupported) {
+        setStatus("La synthèse vocale n’est pas disponible dans ce navigateur.");
+        return;
+      }
+
+      if (!els.feedback.hidden && els.feedback.textContent.trim()) {
+        speak(`${question.question}. ${els.feedback.textContent}`, true);
+      } else {
+        speak(questionSpeechText(question), true);
+      }
+
+      setStatus("Lecture de la question en cours.");
+    });
+
+    if (els.designerPhoto) {
+      const showFallback = () => {
+        els.designerPhoto.hidden = true;
+        if (els.designerFallback) {
+          els.designerFallback.hidden = false;
+        }
+      };
+
+      els.designerPhoto.addEventListener("error", showFallback);
+
+      if (els.designerPhoto.complete && els.designerPhoto.naturalWidth === 0) {
+        showFallback();
+      }
+    }
+
+    if (!speechSupported) {
+      els.voiceBtn.disabled = true;
+      els.stopBtn.disabled = true;
+      els.listenBtn.disabled = true;
+      els.voiceBtn.textContent = "Voix : indisponible";
+    }
+  }
+
+  function init() {
+    initPreferences();
+    bindEvents();
+    updateScore();
+    renderQuestion();
+  }
+
+  init();
+})();

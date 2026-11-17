@@ -36,13 +36,13 @@
             alt="Portrait de Jean-Baptiste Khair, concepteur de la page"
             width="112"
             height="112"
+            onerror="this.style.display='none'; document.getElementById('designerFallback').hidden = false;"
           >
           <div id="designerFallback" class="portrait-fallback" aria-hidden="true" hidden>JBK</div>
         </div>
         <div>
           <p class="eyebrow">Conception</p>
           <p class="designer-name">Jean-Baptiste Khair</p>
-          <p class="small">Concepteur de la page et du test de positionnement.</p>
           <p class="small contact-lines">
             <a href="mailto:khairdidact@gmail.com">khairdidact@gmail.com</a><br>
             <a href="tel:+33767470494">+33 7 67 47 04 94</a>
@@ -54,7 +54,7 @@
 
   <div class="toolbar" role="region" aria-label="Confort de lecture et vocalisation">
     <div class="wrap toolbar-inner">
-      <button id="themeBtn" class="btn btn-outline" type="button" aria-pressed="false">Contraste élevé</button>
+      <button id="themeBtn" class="btn btn-outline" type="button" aria-pressed="false">Thème : GitHub sombre</button>
       <button id="fontBtn" class="btn btn-outline" type="button">Texte : normal</button>
       <button id="voiceBtn" class="btn btn-outline" type="button" aria-pressed="false">Voix : désactivée</button>
       <button id="stopBtn" class="btn btn-outline" type="button">Arrêter la voix</button>
@@ -74,70 +74,11 @@
         reconnaissance d’images, réglages d’accessibilité et bonnes pratiques du web.
       </p>
       <ul class="feature-list">
-        <li><strong>30 questions illustrées</strong> pour situer ses connaissances.</li>
+        <li><strong>Outils PC et mobile</strong> classés par catégories.</li>
         <li><strong>Vocalisation</strong> des questions, réponses et retours, avec réglage de vitesse.</li>
         <li><strong>Deux thèmes</strong> : GitHub sombre et contraste élevé noir/jaune.</li>
         <li><strong>Navigation clavier</strong>, focus visible et zones tactiles adaptées.</li>
       </ul>
-    </section>
-
-    <section class="wrap quiz-section" aria-labelledby="quizTitle">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Test de positionnement</p>
-          <h2 id="quizTitle">30 questions illustrées</h2>
-        </div>
-        <p id="scoreDisplay" class="score-badge" aria-live="polite">Score : 0 / 30</p>
-      </div>
-
-      <div class="progress-block">
-        <div class="progress-meta">
-          <span id="questionCounter">Question 1 sur 30</span>
-          <span id="progressPercent">0 %</span>
-        </div>
-        <div
-          class="progress-track"
-          id="progressBar"
-          role="progressbar"
-          aria-labelledby="questionCounter"
-          aria-valuemin="0"
-          aria-valuemax="30"
-          aria-valuenow="0"
-        >
-          <span id="progressFill"></span>
-        </div>
-      </div>
-
-      <article id="quizCard" class="card quiz-card">
-        <figure class="illustration" id="illustration" aria-hidden="true"></figure>
-
-        <form id="quizForm" novalidate>
-          <fieldset>
-            <legend id="questionLegend" tabindex="-1">Chargement…</legend>
-            <div id="options" class="options"></div>
-          </fieldset>
-
-          <div id="feedback" class="feedback" role="status" aria-live="polite" tabindex="-1" hidden></div>
-
-          <div class="quiz-actions">
-            <button id="validateBtn" class="btn btn-primary" type="submit">Valider ma réponse</button>
-            <button id="nextBtn" class="btn btn-primary" type="button" hidden>Question suivante</button>
-            <button id="listenBtn" class="btn btn-outline" type="button">Écouter la question</button>
-          </div>
-        </form>
-      </article>
-
-      <article id="results" class="card results" hidden aria-labelledby="resultsTitle">
-        <p class="eyebrow">Résultat du positionnement</p>
-        <h3 id="resultsTitle" tabindex="-1">Votre profil</h3>
-        <p class="result-score" id="resultsScore">0 / 30</p>
-        <p class="result-level" id="resultsLevel"></p>
-        <p id="resultsText"></p>
-        <ul id="recommendations" class="recommendations"></ul>
-        <button id="restartBtn" class="btn btn-primary" type="button">Refaire le test</button>
-      </article>
-
-      <p id="status" class="sr-only" role="status" aria-live="polite"></p>
     </section>
 
     <section class="wrap resources" aria-labelledby="resourcesTitle">
@@ -154,7 +95,7 @@
       </p>
 
       <div class="resource-grid">
-        <details class="resource-card" open>
+        <details class="resource-card">
           <summary>Lecteurs d’écran sur ordinateur</summary>
           <ul>
             <li><strong>NVDA</strong> — lecteur d’écran gratuit et open source pour Windows.</li>
@@ -248,6 +189,65 @@
           </ul>
         </details>
       </div>
+    </section>
+
+    <section class="wrap quiz-section" aria-labelledby="quizTitle">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Test de positionnement</p>
+          <h2 id="quizTitle">30 questions illustrées</h2>
+        </div>
+        <p id="scoreDisplay" class="score-badge" aria-live="polite">Score : 0 / 30</p>
+      </div>
+
+      <div class="progress-block">
+        <div class="progress-meta">
+          <span id="questionCounter">Question 1 sur 30</span>
+          <span id="progressPercent">0 %</span>
+        </div>
+        <div
+          class="progress-track"
+          id="progressBar"
+          role="progressbar"
+          aria-labelledby="questionCounter"
+          aria-valuemin="0"
+          aria-valuemax="30"
+          aria-valuenow="0"
+        >
+          <span id="progressFill"></span>
+        </div>
+      </div>
+
+      <article id="quizCard" class="card quiz-card">
+        <figure class="illustration" id="illustration" aria-hidden="true"></figure>
+
+        <form id="quizForm" novalidate>
+          <fieldset>
+            <legend id="questionLegend" tabindex="-1">Chargement…</legend>
+            <div id="options" class="options"></div>
+          </fieldset>
+
+          <div id="feedback" class="feedback" role="status" aria-live="polite" tabindex="-1" hidden></div>
+
+          <div class="quiz-actions">
+            <button id="validateBtn" class="btn btn-primary" type="submit">Valider ma réponse</button>
+            <button id="nextBtn" class="btn btn-primary" type="button" hidden>Question suivante</button>
+            <button id="listenBtn" class="btn btn-outline" type="button">Écouter la question</button>
+          </div>
+        </form>
+      </article>
+
+      <article id="results" class="card results" hidden aria-labelledby="resultsTitle">
+        <p class="eyebrow">Résultat du positionnement</p>
+        <h3 id="resultsTitle" tabindex="-1">Votre profil</h3>
+        <p class="result-score" id="resultsScore">0 / 30</p>
+        <p class="result-level" id="resultsLevel"></p>
+        <p id="resultsText"></p>
+        <ul id="recommendations" class="recommendations"></ul>
+        <button id="restartBtn" class="btn btn-primary" type="button">Refaire le test</button>
+      </article>
+
+      <p id="status" class="sr-only" role="status" aria-live="polite"></p>
     </section>
   </main>
 
